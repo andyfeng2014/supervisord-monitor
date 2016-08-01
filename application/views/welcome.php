@@ -66,7 +66,7 @@
 					}
 					$ui_url = $base_url . $parsed_url['host'] . ':' . $cfg[$name]['port']. '/';
 				?>
-				<div class="span<?php echo ($this->config->item('supervisor_cols')==2?'6':'4');?>">
+				<div class="span<?php echo ($this->config->item('supervisor_cols')==2?'8':'4');?>">
 				<table class="table table-bordered table-condensed table-striped">
 					<tr><th colspan="4">
 						<a href="<?php echo $ui_url; ?>"><?php echo $name; ?></a> <?php if($this->config->item('show_host')){ ?><i><?php echo $parsed_url['host']; ?></i><?php } ?>
@@ -120,7 +120,7 @@
 									$alert = true;
 									echo '<span class="pull-right"><a href="'.site_url('/control/clear/'.$name.'/'.$item_name).'" id="'.$name.'_'.$item_name.
 											'" onclick="return false" data-toggle="popover" data-message="'.htmlspecialchars($check).'" data-original-title="'.
-											$item_name.'@'.$name.'" class="pop btn btn-mini btn-danger"><img src="/img/alert_icon.png" /></a></span>';
+											$item_name.'@'.$name.'></a></span>';
 								}
 								?>
 							</td>
@@ -168,9 +168,13 @@
     </div> <!-- /container -->
 	
 	<div class="footer">
+		<!--
 		<p>Powered by <a href="https://github.com/mlazarov/supervisord-monitor" target="_blank">Supervisord Monitor</a> | Page rendered in <strong>{elapsed_time}</strong> seconds</p>
+		-->
+		<p>Page rendered in <strong>{elapsed_time}</strong> seconds</p>
 	</div>
 	<script>
+	/*
 	function show_content($param){
 		stopTimer();
 		$time = new Date();
@@ -190,6 +194,7 @@
 	$('.pop').popover(
 		{content: show_content,html:true,placement: 'bottom'}
 	);
+	*/
 	var $refresh = <?php echo $this->config->item('refresh');?>;
 	var $timer = false;
 	$(window).load(function() {
